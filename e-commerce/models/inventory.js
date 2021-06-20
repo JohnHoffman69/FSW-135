@@ -6,11 +6,11 @@ const inventorySchema = new Schema({
         type: String,
         required: true
     },
-    image: {
+    job: {
         type: String,
         required: true
     },
-    price: {
+    years: {
         type: Number,
         required: true
     }
