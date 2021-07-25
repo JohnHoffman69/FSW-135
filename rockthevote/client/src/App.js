@@ -1,23 +1,39 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Main from "./components/Body/Profile/Main"
-import Login from "./components/Entry/Login/Login"
-import Auth from "./components/Entry/Auth"
-import Registration from "./components/Entry/Registration/Registration"
-// import Profile from "./components/Profile/Profile"
-import "./styles.css";
+import React, { useContext } from 'react';
+import Login from './components/Login'
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { UserContext } from './context/UserProvider';
+import Profile from './components/Profile';
+import Navbar from './components/Navbar';
+import ProtectedRoute from './components/ProtectedRoute';
+import Feed from './components/Feed'
 
-const App = () => {
+
+
+function App() {
+  const {token} = useContext(UserContext)
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/" render={() => <Auth/>}/>
-          <Route path="/Main" render={() => <Main/>}/>
-        </Switch>
-      </Router>
+    <div id="app">
+      <Navbar />
+      <Switch>
+        <Route
+          exact path="/"
+          render={() => token ? <Redirect to="/profile"/> : <Login />}
+        />
+        <ProtectedRoute
+          path="/profile"
+          component={Profile}
+          redirectTo="/"
+          token={token}   
+        />
+        <ProtectedRoute
+          path="/feed"
+          component={Feed}
+          redirectTo="/"
+          token={token}
+        />
+      </Switch>
     </div>
   );
-};
+}
 
 export default App;

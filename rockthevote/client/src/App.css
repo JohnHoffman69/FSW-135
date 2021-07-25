@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'PT Sans', sans-serif;
+  outline: none;
+  text-decoration: none;
+}
+
+
+
+.app > h1 {
+  text-align: center;
+  font-size: 35px;
+  padding: 25px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  background: rgb(210,10,10);
+  background: linear-gradient(90deg, rgba(210,10,10,1) 20%, rgba(255,255,255,0) 50%, rgba(35,54,237,0.9934348739495799) 80%);
+}
+
+.navbar > button {
+  margin: 16px 8px;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: lightgray;
+}
+
+.navbar > button:hover {
+  color: #d20a0a;
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+}
+
+.auth-container > form {
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container > form > input {
+  margin: 16px 8px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.auth-container > form > button {
+  margin: 16px 8px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.auth-container > form > button:hover {
+    background-color: blue;
+    color: white;
+    border: 1px dotted black;
+}
+
+.issue-list {
+  text-align: center;
+  display: grid;
+  border: 1px solid black;
+}
+
+.issue {
+  width: 300px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.issue > input {
+  width: 280px;
+}
+
+.upvote-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+ .public {
+  height: 100vh;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile > h1 {
+  margin: 8px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.profile > h3 {
+  margin: 16px 0;
+  text-decoration: underline;
+}
+
+.profile > form {
+  margin: 16px 0;
+  border: none;
+  background: rgb(210,10,10);
+  background: linear-gradient(90deg, rgba(210,10,10,1) 20%, rgba(255,255,255,0) 50%, rgba(35,54,237,0.9934348739495799) 80%);
+  padding: 20px;
+  border-radius: 5px
+}
+
+.profile > form > input,
+.profile > form > button {
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 5px
+}  
