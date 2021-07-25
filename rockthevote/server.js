@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const app = express();
 
 
+const PORT = 5000;
+
 app.use(express.json()); 
 app.use(morgan("dev")); 
 
@@ -22,11 +24,11 @@ mongoose.connect(
 );
 
 // //Routes
-app.use('/auth', require('./routes/authRouter'))
-app.use('/api', expressJwt({secret: process.env.SECRET, algorithms: ["HS256"]}))
-app.use('/api/user', require('./routes/userRouter.js'))
-app.use('/api/issue', require('./routes/issueRouter.js'))
-app.use('/api/comments', require('./routes/commentRouter.js'))
+app.use("/api", expressJwt({ secret: process.env.SECRET, algorithms: ['HS256']}))
+app.use("/api/user", require("./routes/userRouter.js"))
+app.use("/auth", require("./routes/authRouter.js"))
+app.use("/api/issues", require('./routes/issueRouter.js'))
+app.use("/api/comments", require("./routes/commentRouter.js"))
 
 //Errors
 app.use((err, req, res, next) => {
@@ -38,6 +40,6 @@ app.use((err, req, res, next) => {
 });
 
 //Port
-app.listen(7000, () => {
-  console.log("App is listening on port 7000!");
+app.listen(PORT, () => {
+  console.log(`Server is running on port: ${PORT}`)
 });

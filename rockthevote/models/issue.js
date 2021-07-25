@@ -6,12 +6,16 @@ const issueSchema = new Schema({
     type: String,
     required: true,
   },
-  description: {
+  details: {
     type: String,
   },
   completed: {
     type: Boolean,
     default: false,
+  },
+  imgUrl: {
+    type: String,
+    required: true,
   },
   user: {
     type: Schema.Types.ObjectId,
@@ -22,14 +26,21 @@ const issueSchema = new Schema({
     type: String,
     required: false,
   },
-  likes: {
+  upvotes: {
     type: Number,
     default: 0,
   },
-  dislikes: {
+  downvotes: {
     type: Number,
     default: 0,
-  }
+  },
+  usersVoted: [{
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"    
+    }
+  }]
 });
+
 
 module.exports = mongoose.model("Issue", issueSchema);

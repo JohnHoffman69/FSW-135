@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import IssueForm from "./IssueForm.js";
-import IssueList from "./IssueList.js";
-import { UserContext } from "../context/UserProvider.js";
+import IssueForm from "../Issue/IssueForm.js";
+import IssueList from "../Issue/IssueList.js";
+import { UserContext } from "../../context/UserProvider.js";
 
-export default function Profile() {
+const Profile = () => {
   const {
     user: { username },
-    getUserIssues,
+    getIssuesByUser,
     createIssue,
     issueComments,
     issues,
@@ -14,16 +14,19 @@ export default function Profile() {
 
   return (
     <div className="profile">
-      <h1>Welcome {username}</h1>
-      <h3>Post an issue</h3>
+      <h1 className="greet">Welcome {username}</h1>
+      <h3>Post an Issue</h3>
       <IssueForm createIssue={createIssue} />
+    
       <div className="issues">
         <IssueList
           issues={issues}
-          getIssues={getUserIssues}
+          getIssues={getIssuesByUser}
           issueComments={issueComments}
         />
       </div>
     </div>
   );
 }
+
+export default Profile;

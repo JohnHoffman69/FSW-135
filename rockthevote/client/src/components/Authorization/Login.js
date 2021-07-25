@@ -1,7 +1,6 @@
-  
 import React, { useState, useContext } from 'react'
 import AuthForm from './AuthForm.js'
-import { UserContext } from '../context/UserProvider.js'
+import { UserContext } from '../../context/UserProvider.js'
 
 
 const initInputs = { username: "", password: "" }
@@ -36,7 +35,7 @@ const Login = () => {
 
   return (
     <div className="loginBox">
-      <h1>Rock The Vote</h1>
+      <h1 className="title">Join Rock the Votes Today</h1>
       { !toggle ?
         <>
         <AuthForm 
@@ -45,25 +44,26 @@ const Login = () => {
             inputs={inputs}
             btnText="Login"
             errMsg={errMsg}
-          />
-          <button onClick={() => toggleForm()}>Sign Up</button>
+          /> 
+          <button className="sform" onClick={() => toggleForm()}>Sign Up</button> 
         </>
-        :
-        <>
+    
+       :
+       
+       <>  
         <AuthForm 
             handleChange={handleChange}
             handleSubmit={handleSignup}
             inputs={inputs}
             btnText="Sign Up"
             errMsg={errMsg}
-          />
-          <button onClick={() => toggleForm()}>Sign In</button>
-        </>
-     
+          /> 
       
+          <button className="sform" onClick={() => toggleForm()}>Login</button>  
+        </>   
       }
     </div>
   )
 }
 
-export default Login;
+export default Login

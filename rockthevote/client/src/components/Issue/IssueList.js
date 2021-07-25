@@ -1,7 +1,7 @@
 import React from 'react'
 import Issue from './Issue.js'
 
-export default function IssueList(props){
+const IssueList = (props) => {
   const { issues } = props
   return (
     <div className="issue-list">
@@ -9,3 +9,5 @@ export default function IssueList(props){
     </div>
   )
 }
+
+export default IssueList;

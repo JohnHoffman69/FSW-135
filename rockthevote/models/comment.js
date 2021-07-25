@@ -18,14 +18,6 @@ const commentSchema = new Schema({
   issueId: {
     type: String,
     required: true
-  },
-  likes: {
-    type: Number,
-    default: 0
-  },
-  dislikes: {
-    type: Number,
-    default: 0
   }
 })
 

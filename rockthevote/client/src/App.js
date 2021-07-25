@@ -1,36 +1,35 @@
-import React, { useContext } from 'react';
-import Login from './components/Login'
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { UserContext } from './context/UserProvider';
-import Profile from './components/Profile';
-import Navbar from './components/Navbar';
-import ProtectedRoute from './components/ProtectedRoute';
-import Feed from './components/Feed'
+import React, { useContext } from 'react'
+import Login from './components/Authorization/Login'
+import Navbar from './components/Page/Navbar'
+import Profile from './components/Page/Profile'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import Campaign from './components/Page/Campaign'
+import { UserContext } from './context/UserProvider'
+import './index.css'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
-
-
-function App() {
-  const {token} = useContext(UserContext)
+const App = ()=>  {
+  const { token } = useContext(UserContext)
   return (
-    <div id="app">
+    <div id='app'>
       <Navbar />
       <Switch>
         <Route
-          exact path="/"
-          render={() => token ? <Redirect to="/profile"/> : <Login />}
+          exact path='/'
+          render={() => token ? <Redirect to='/profile' /> : <Login />}
         />
         <ProtectedRoute
-          path="/profile"
+          path='/profile'
           component={Profile}
-          redirectTo="/"
-          token={token}   
-        />
-        <ProtectedRoute
-          path="/feed"
-          component={Feed}
           redirectTo="/"
           token={token}
         />
+        <ProtectedRoute 
+          path="/campaign"
+          component={Campaign}
+          redirectTo="/"
+          token={token}
+        />    
       </Switch>
     </div>
   );
